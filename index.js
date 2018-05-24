@@ -88,16 +88,6 @@ class owl {
     return this.api.get('teams');
   }
 
-  // dep_getTeam(id){
-  //   if (id === undefined || id === null || id === ""){
-  //     return new Promise(function(resolve,reject){
-  //       resolve({"data":"Please provide a team ID"});
-  //     });
-  //   } else {
-  //     return this.api.get(`teams/${id}`);
-  //   }
-  // }
-
   getTeam(id){
     return new Promise(resolve => {
       var isnum = /^\d+$/.test(id);
@@ -156,57 +146,6 @@ class owl {
       })
       .catch(err => console.log(err));
     })
-  }
-
-  // dep_nextMatchForTeam(id) {
-  //   return new Promise(resolve => {
-  //     var isnum = /^\d+$/.test(id);
-  //     if (!isnum){
-  //       this.findTeamID(id).then(res => {
-  //         this.getTeam(res.data)
-  //           .then(data => {
-  //             const schedule = data.data.schedule;
-  //             schedule.sort(_matchCompare);
-  //             return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
-  //           }
-  //         )
-  //         .catch(err => console.log(err));
-  //       });
-  //     } else {
-  //       this.getTeam(id)
-  //         .then(data => {
-  //           const schedule = data.data.schedule;
-  //           schedule.sort(_matchCompare);
-  //           return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
-  //         }
-  //       )
-  //       .catch(err => console.log(err));
-  //     }
-  //   });
-  // }
-
-  dep_lastMatchForTeam(id){
-    return new Promise(resolve => {
-      var isnum = /^\d+$/.test(id);
-      if (!isnum){
-        this.findTeamID(id).then(res => {
-          const teamid = res.data;
-          this.getTeam(teamid).then(data => {
-            const schedule = data.data.schedule;
-            schedule.sort(_matchCompare);
-            return resolve({"data": schedule.filter(match => match.state === owl.Match.State.CONCLUDED).pop()});
-          })
-          .catch(err => console.log(err));
-        });
-      } else {
-        this.getTeam(id).then(data => {
-          const schedule = data.data.schedule;
-          schedule.sort(_matchCompare);
-          return resolve({"data": schedule.filter(match => match.state === owl.Match.State.CONCLUDED).pop()});
-        })
-        .catch(err => console.log(err));
-      }
-    });
   }
 
   lastMatchForTeam(id){
