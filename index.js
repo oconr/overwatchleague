@@ -38,10 +38,20 @@ if (!Array.prototype.indexOf) {
 }
 
 class owl {
-  constructor(){
+  constructor({
+    locale = 'en_US',
+    useChina = false
+  } = {}){
+    var url = useChina === true ? 'https://api.overwatchleague.cn/' : 'https://api.overwatchleague.com/';
+    const params = {};
+    if (locale){
+      params.locale = locale;
+    }
     this.api = axios.create({
-      baseURL: 'https://api.overwatchleague.com/',
+      baseURL: url,
+      params: params
     });
+    this.locale = locale;
   }
 
   getInfo(){
@@ -177,4 +187,4 @@ class owl {
   }
 }
 
-module.exports = new owl();
+module.exports = owl;
