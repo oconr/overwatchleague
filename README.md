@@ -22,7 +22,8 @@ $ npm install overwatchleague --save
 ## Usage
 
 ```js
-const OWL = require('overwatchleague');
+const OverwatchLeague = require('overwatchleague');
+const OWL = new OverwatchLeague();
 
 OWL.findTeamName(4410).then(response => {
     console.log(response.data);
@@ -30,6 +31,12 @@ OWL.findTeamName(4410).then(response => {
 ```
 
 Output: `London Spitfire`
+
+## Options
+`new OverwatchLeague([options])`
+* `options` (object): All options are optional
+  * `locale` (string): The locale for response to be returned in
+  * `useChina` (boolean, default `false`): Whether or not to use the Chinese API endpoint.
 
 ## Methods
 
