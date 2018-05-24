@@ -1,5 +1,9 @@
 var axios = require('axios');
 
+function _matchCompare(a, b) {
+  return a.startDate - b.startDate;
+}
+
 if (!Array.prototype.indexOf) {
   Array.prototype.indexOf = function indexOf(member, startFrom) {
     if (this == null) {
@@ -128,6 +132,33 @@ class owl {
     return this.api.get('standings');
   }
 
+  nextMatchForTeam(id) {
+    return new Promise(resolve => {
+      var isnum = /^\d+$/.test(id);
+      if (!isnum){
+        this.findTeamID(id).then(res => {
+          this.getTeam(res.data)
+            .then(data => {
+              const schedule = data.data.schedule;
+              schedule.sort(_matchCompare);
+              return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
+            }
+          )
+          .catch(err => console.log(err));
+        });
+      } else {
+        this.getTeam(id)
+          .then(data => {
+            const schedule = data.data.schedule;
+            schedule.sort(_matchCompare);
+            return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
+          }
+        )
+        .catch(err => console.log(err));
+      }
+    });
+  }
+
   findTeamID(name){
     return new Promise(function(resolve,reject){
       const stripped = JSON.stringify(name).replace(/\W/g, '').toLowerCase();
@@ -186,5 +217,12 @@ class owl {
     });
   }
 }
+
+owl.Match = {
+  State: {
+    PENDING: 'PENDING',
+    CONCLUDED: 'CONCLUDED'
+  }
+};
 
 module.exports = owl;

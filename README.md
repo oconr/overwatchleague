@@ -54,5 +54,6 @@ Output: `London Spitfire`
 * `getMaps()` - Retrieve a list of maps
 * `getVideos()` - Retrieve a list of VODs for past matches
 * `getStandings()` - Retrieve current standings
+* `nextMatchForTeam(teamid)` - Retrieve the next match for a specific team
 * `findTeamID(teamname)` - Returns the ID for the team name provided
 * `findTeamName(teamid)` - Returns the name for the team ID provided
