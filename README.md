@@ -46,7 +46,7 @@ Output: `London Spitfire`
 * `getMatches()` - Retrieve all matches
 * `getMatch(matchid)` - Retrieve a specific match
 * `getTeams()` - Retrieve all teams
-* `getTeam(teamid)` - Retrieve a specific team
+* `getTeam(teamid/teamname)` - Retrieve a specific team
 * `getNews()` - Retrieve all news items
 * `getNewsPost(postid)` - Retrieve a specific news item
 * `getLiveMatch()` - Retrieve live data for the current match
@@ -54,7 +54,64 @@ Output: `London Spitfire`
 * `getMaps()` - Retrieve a list of maps
 * `getVideos()` - Retrieve a list of VODs for past matches
 * `getStandings()` - Retrieve current standings
-* `nextMatchForTeam(teamid)` - Retrieve the next match for a specific team
-* `lastMatchForTeam(teamid)` - Retrieve the last match for a specific team
+* `nextMatchForTeam(teamid/teamname)` - Retrieve the next match for a specific team
+* `lastMatchForTeam(teamid/teamname)` - Retrieve the last match for a specific team
 * `findTeamID(teamname)` - Returns the ID for the team name provided
 * `findTeamName(teamid)` - Returns the name for the team ID provided
+
+#### Variables
+These are the accepted valued for team ID/team name (not case-sensitive)
+* Teams
+  * Dallas Fuel
+    * ID: **4523**
+    * Names: **Dallas Fuel/Dallas/Fuel**
+  * Philadelphia Fusion
+    * ID: **4524**
+    * Names: **Philadelphia Fusion/Philadelphia/Fusion**
+  * Houston Outlaws
+    * ID: **4525**
+    * Names: **Houston Outlaws/Houston/Outlaws**
+  * Boston Uprising
+    * ID: **4402**
+    * Names: **Boston Uprising/Boston/Uprising**
+  * New York Excelsior
+    * ID: **4403**
+    * Name: **New York Excelsior/New York/Excelsior/NYXL**
+  * San Francisco Shock
+    * ID: **4404**
+    * Name: **San Francisco Shock/San Francisco/Shock**
+  * Los Angeles Valiant
+    * ID: **4405**
+    * Name: **Los Angeles Valiant/LA Valiant/Valiant**
+  * Los Angeles Gladiators
+    * ID: **4406**
+    * Name: **Los Angeles Gladiators/LA Gladiators/Gladiators**
+  * Florida Mayhem
+    * ID: **4407**
+    * Name: **Florida Mayhem/Florida/Mayhem**
+  * Shanghai Dragons
+    * ID: **4408**
+    * Name: **Shanghai Dragons/Shanghai/Dragons**
+  * Seoul Dynasty
+    * ID: **4409**
+    * Name: **Seoul Dynasty/Seoul/Dynasty**
+  * London Spitfire
+    * ID: **4410**
+    * Name: **London Spitfire/London/Spitfire**
+
+* Locales
+  * `de_DE` - German
+  * `en_US` - English (United States)
+  * `en_GB` - English (Great Britain)
+  * `es_ES` - Spanish (Spain)
+  * `es_MX` - Spanish (Mexico)
+  * `fr_FR` - French
+  * `it_IT` - Italian
+  * `pt_BR` - Portuguese
+  * `pl_PL` - Polish
+  * `ru_RU` - Russian
+  * `ko_KR` - Korean
+  * `ja_JP` - Japanese
+  * `zh_TW` - Chinese (Taiwan)
+  * `zh_CH` - Chinese (China)
+    * Instead of using `zh_CH`, I recommend using `useChina: true`

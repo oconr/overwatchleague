@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-function _matchCompare(a, b) {
+function compareMatch(a, b) {
   return a.startDate - b.startDate;
 }
 
@@ -88,14 +88,29 @@ class owl {
     return this.api.get('teams');
   }
 
+  // dep_getTeam(id){
+  //   if (id === undefined || id === null || id === ""){
+  //     return new Promise(function(resolve,reject){
+  //       resolve({"data":"Please provide a team ID"});
+  //     });
+  //   } else {
+  //     return this.api.get(`teams/${id}`);
+  //   }
+  // }
+
   getTeam(id){
-    if (id === undefined || id === null || id === ""){
-      return new Promise(function(resolve,reject){
-        resolve({"data":"Please provide a team ID"});
-      });
-    } else {
-      return this.api.get(`teams/${id}`);
-    }
+    return new Promise(resolve => {
+      var isnum = /^\d+$/.test(id);
+      if (id === undefined || id === null || id === ""){
+        resolve({"data":"Please provide a team ID or name"});
+      } else if (!isnum){
+        this.findTeamID(id).then(res => {
+          resolve(this.api.get(`teams/${res.data}`));
+        });
+      } else {
+        resolve(this.api.get(`teams/${id}`));
+      }
+    });
   }
 
   getNews(){
@@ -132,34 +147,45 @@ class owl {
     return this.api.get('standings');
   }
 
-  nextMatchForTeam(id) {
+  nextMatchForTeam(id){
     return new Promise(resolve => {
-      var isnum = /^\d+$/.test(id);
-      if (!isnum){
-        this.findTeamID(id).then(res => {
-          this.getTeam(res.data)
-            .then(data => {
-              const schedule = data.data.schedule;
-              schedule.sort(_matchCompare);
-              return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
-            }
-          )
-          .catch(err => console.log(err));
-        });
-      } else {
-        this.getTeam(id)
-          .then(data => {
-            const schedule = data.data.schedule;
-            schedule.sort(_matchCompare);
-            return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
-          }
-        )
-        .catch(err => console.log(err));
-      }
-    });
+      this.getTeam(id).then(res => {
+        const schedule = res.data.schedule;
+        schedule.sort(compareMatch);
+        return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
+      })
+      .catch(err => console.log(err));
+    })
   }
 
-  lastMatchForTeam(id){
+  // dep_nextMatchForTeam(id) {
+  //   return new Promise(resolve => {
+  //     var isnum = /^\d+$/.test(id);
+  //     if (!isnum){
+  //       this.findTeamID(id).then(res => {
+  //         this.getTeam(res.data)
+  //           .then(data => {
+  //             const schedule = data.data.schedule;
+  //             schedule.sort(_matchCompare);
+  //             return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
+  //           }
+  //         )
+  //         .catch(err => console.log(err));
+  //       });
+  //     } else {
+  //       this.getTeam(id)
+  //         .then(data => {
+  //           const schedule = data.data.schedule;
+  //           schedule.sort(_matchCompare);
+  //           return resolve({"data": schedule.find(match => match.state === owl.Match.State.PENDING)});
+  //         }
+  //       )
+  //       .catch(err => console.log(err));
+  //     }
+  //   });
+  // }
+
+  dep_lastMatchForTeam(id){
     return new Promise(resolve => {
       var isnum = /^\d+$/.test(id);
       if (!isnum){
@@ -181,6 +207,17 @@ class owl {
         .catch(err => console.log(err));
       }
     });
+  }
+
+  lastMatchForTeam(id){
+    return new Promise(resolve => {
+      this.getTeam(id).then(res => {
+        const schedule = res.data.schedule;
+        schedule.sort(compareMatch);
+        return resolve({"data": schedule.filter(match => match.state === owl.Match.State.CONCLUDED).pop()});
+      })
+      .catch(err => console.log(err));
+    })
   }
 
   findTeamID(name){
