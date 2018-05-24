@@ -14,12 +14,19 @@
     "overwatch",
     "league",
     "api",
-    "owl"
+    "owl",
+    "ryan",
+    "oconr",
+    "oconnor",
+    "blizzard"
   ],
   "author": "Ryan O'Connor",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ryanoconr/overwatchleague/issues"
   },
-  "homepage": "https://github.com/ryanoconr/overwatchleague#readme"
+  "homepage": "https://github.com/ryanoconr/overwatchleague#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
 }
