@@ -2,6 +2,8 @@
 
 > A Node.JS library for accessing and using the Overwatch League API
 
+**NOTE:** The Overwatch League API is not officially supported by Blizzard, and is subject to change at any time. The documentation for the API has been developed by the community, and may or may not be complete. Keep this in mind before relying on this for a production app!
+
 ## Install
 
 Install `overwatchleague`
