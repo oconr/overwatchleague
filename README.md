@@ -33,7 +33,7 @@ OWL.findTeamName(4410).then(response => {
 Output: `London Spitfire`
 
 ## Options
-`new OverwatchLeague([options])`
+`new OverwatchLeague({options})`
 * `options` (object): All options are optional
   * `locale` (string): The locale for response to be returned in
   * `useChina` (boolean, default `false`): Whether or not to use the Chinese API endpoint.
@@ -55,5 +55,6 @@ Output: `London Spitfire`
 * `getVideos()` - Retrieve a list of VODs for past matches
 * `getStandings()` - Retrieve current standings
 * `nextMatchForTeam(teamid)` - Retrieve the next match for a specific team
+* `lastMatchForTeam(teamid)` - Retrieve the last match for a specific team
 * `findTeamID(teamname)` - Returns the ID for the team name provided
 * `findTeamName(teamid)` - Returns the name for the team ID provided

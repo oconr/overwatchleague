@@ -159,6 +159,30 @@ class owl {
     });
   }
 
+  lastMatchForTeam(id){
+    return new Promise(resolve => {
+      var isnum = /^\d+$/.test(id);
+      if (!isnum){
+        this.findTeamID(id).then(res => {
+          const teamid = res.data;
+          this.getTeam(teamid).then(data => {
+            const schedule = data.data.schedule;
+            schedule.sort(_matchCompare);
+            return resolve({"data": schedule.filter(match => match.state === owl.Match.State.CONCLUDED).pop()});
+          })
+          .catch(err => console.log(err));
+        });
+      } else {
+        this.getTeam(id).then(data => {
+          const schedule = data.data.schedule;
+          schedule.sort(_matchCompare);
+          return resolve({"data": schedule.filter(match => match.state === owl.Match.State.CONCLUDED).pop()});
+        })
+        .catch(err => console.log(err));
+      }
+    });
+  }
+
   findTeamID(name){
     return new Promise(function(resolve,reject){
       const stripped = JSON.stringify(name).replace(/\W/g, '').toLowerCase();
