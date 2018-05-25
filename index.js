@@ -61,11 +61,51 @@ class owl {
   }
 }
 
-const libdir = fs.readdirSync(path.join(__dirname,'lib'));
-const files = libdir.filter(f => f.split('.').pop() === 'js');
-files.forEach((f,i) => {
-  owl.prototype[f.slice(0,-3)] = require(`./lib/${f.slice(0,-3)}`);
-});
+// importing methods
+
+owl.prototype.findTeamID = require('./lib/findTeamID');
+owl.prototype.findTeamName = require('./lib/findTeamName');
+owl.prototype.getGameDiff = require('./lib/getGameDiff');
+owl.prototype.getGameLoss = require('./lib/getGameLoss');
+owl.prototype.getGameTie = require('./lib/getGameTie');
+owl.prototype.getGameWin = require('./lib/getGameWin');
+owl.prototype.getInfo = require('./lib/getInfo');
+owl.prototype.getLiveMatch = require('./lib/getLiveMatch');
+owl.prototype.getMaps = require('./lib/getMaps');
+owl.prototype.getMatch = require('./lib/getMatch');
+owl.prototype.getMatchDraw = require('./lib/getMatchDraw');
+owl.prototype.getMatchLoss = require('./lib/getMatchLoss');
+owl.prototype.getMatchWins = require('./lib/getMatchWins');
+owl.prototype.getMatches = require('./lib/getMatches');
+owl.prototype.getNews = require('./lib/getNews');
+owl.prototype.getNewsPost = require('./lib/getNewsPost');
+owl.prototype.getPlayers = require('./lib/getPlayers');
+owl.prototype.getPrimaryColor = require('./lib/getPrimaryColor');
+owl.prototype.getRankings = require('./lib/getRankings');
+owl.prototype.getSchedule = require('./lib/getSchedule');
+owl.prototype.getSecondaryColor = require('./lib/getSecondaryColor');
+owl.prototype.getStandings = require('./lib/getStandings');
+owl.prototype.getStreams = require('./lib/getStreams');
+owl.prototype.getTeam = require('./lib/getTeam');
+owl.prototype.getTeamIcon = require('./lib/getTeamIcon');
+owl.prototype.getTeamLogo = require('./lib/getTeamLogo');
+owl.prototype.getTeams = require('./lib/getTeams');
+owl.prototype.getVideos = require('./lib/getVideos');
+owl.prototype.getWinPCT = require('./lib/getWinPCT');
+owl.prototype.lastMatchForTeam = require('./lib/lastMatchForTeam');
+owl.prototype.nextMatchForTeam = require('./lib/nextMatchForTeam');
+
+// end importing methods
+
+// vvv will not work in browser environment vvv
+//
+// const libdir = fs.readdirSync(path.join(__dirname,'lib'));
+// const files = libdir.filter(f => f.split('.').pop() === 'js');
+// files.forEach((f,i) => {
+//   owl.prototype[f.slice(0,-3)] = require(`./lib/${f.slice(0,-3)}`);
+//
+//   console.log(`owl.prototype.${f.slice(0,-3)} = require('./lib/${f.slice(0,-3)}');`);
+// });
 
 owl.Match = {
   State: {
