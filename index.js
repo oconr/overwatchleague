@@ -61,7 +61,7 @@ class owl {
   }
 }
 
-const libdir = fs.readdirSync(`./lib`);
+const libdir = fs.readdirSync(path.join(__dirname,'lib'));
 const files = libdir.filter(f => f.split('.').pop() === 'js');
 files.forEach((f,i) => {
   owl.prototype[f.slice(0,-3)] = require(`./lib/${f.slice(0,-3)}`);
