@@ -1,6 +1,6 @@
 {
   "name": "overwatchleague",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "A Node.JS library for accessing and using the Overwatch League API",
   "main": "index.js",
   "repository": {
