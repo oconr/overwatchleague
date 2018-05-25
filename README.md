@@ -58,6 +58,19 @@ Output: `London Spitfire`
 * `lastMatchForTeam(teamid/teamname)` - Retrieve the last match for a specific team
 * `findTeamID(teamname)` - Returns the ID for the team name provided
 * `findTeamName(teamid)` - Returns the name for the team ID provided
+* `getGameDiff(teamid/teamname)` - Returns the game difference for a specific team
+* `getGameLoss(teamid/teamname)` - Returns the game losses for a specific team
+* `getGameTie(teamid/teamname)` - Returns the game ties for a specific team
+* `getGameWin(teamid/teamname)` - Returns the game wins for a specific team
+* `getMatchDraw(teamid/teamname)` - Returns the match draws for a specific team
+* `getMatchLoss(teamid/teamname)` - Returns the match losses for a specific team
+* `getMatchWins(teamid/teamname)` - Returns the match wins for a specific team
+* `getPlayers(teamid/teamname)` - Returns the players for a specific team
+* `getPrimaryColor(teamid/teamname)` - Returns the hex code for a team's primary color
+* `getSecondaryColor(teamid/teamname)` - Returns the hex code for a team's secondary color
+* `getTeamIcon(teamid/teamname)` - Returns the URL for a team's icon
+* `getTeamLogo(teamid/teamname)` - Returns the URL for a team's logo
+* `getWinPCT(teamid/teamname)` - Returns the match win percentage for a specific team
 
 #### Variables
 These are the accepted valued for team ID/team name (not case-sensitive)
