@@ -94,6 +94,7 @@ owl.prototype.getVideos = require('./lib/getVideos');
 owl.prototype.getWinPCT = require('./lib/getWinPCT');
 owl.prototype.lastMatchForTeam = require('./lib/lastMatchForTeam');
 owl.prototype.nextMatchForTeam = require('./lib/nextMatchForTeam');
+owl.prototype.getPlayer = require('./lib/getPlayer');
 
 // end importing methods
 
