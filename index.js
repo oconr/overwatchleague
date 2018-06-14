@@ -53,6 +53,9 @@ class owl {
     if (locale){
       params.locale = locale;
     }
+    if (url.startsWith('player/')){
+      params.expand = stats,stats.ranks
+    }
     this.api = axios.create({
       baseURL: url,
       params: params
