@@ -40,37 +40,48 @@ Output: `London Spitfire`
 
 ## Methods
 
-* `getInfo()` - Retrieve information about the Overwatch League
-* `getRankings()` - Retrieve current rankings
-* `getSchedule()` - Retrieve current schedule, including past matches
-* `getMatches()` - Retrieve all matches
-* `getMatch(matchid)` - Retrieve a specific match
-* `getTeams()` - Retrieve all teams
-* `getTeam(teamid/teamname)` - Retrieve a specific team
-* `getNews()` - Retrieve all news items
-* `getNewsPost(postid)` - Retrieve a specific news item
-* `getLiveMatch()` - Retrieve live data for the current match
-* `getStreams()` - Retrieve links to Overwatch League livestreams
-* `getMaps()` - Retrieve a list of maps
-* `getVideos()` - Retrieve a list of VODs for past matches
-* `getStandings()` - Retrieve current standings
-* `nextMatchForTeam(teamid/teamname)` - Retrieve the next match for a specific team
-* `lastMatchForTeam(teamid/teamname)` - Retrieve the last match for a specific team
+#### Game Methods
+* `getLiveMatch()` - Returns live data for the current match
+* `getMatch(matchid)` - Returns data for a specific match
+* `getMatches()` - Returns data for all matches
+* `getWeeksMatches()` - Returns data for all matches 3 days either side of the current date
+* `getConcludedWeek()` - Returns data for all matches played during the last week
+* `getUpcomingWeek()` - Returns data for all matches during the upcoming week
+
+#### General Methods
+* `getInfo()` - Returns information about the Overwatch League
+* `getSchedule()` - Returns current schedule, including past matches
+* `getMaps()` - Returns a list of maps
+* `getNews()` - Returns all news items
+* `getNewsPost(postid)` - Returns a specific news item
+* `getStandings()` - Returns the current standings
+* `getStreams()` - Returns links to Overwatch League livestreams
+* `getVideos()` - Returns a list of VODs for past matches
+
+#### Player methods
+* `getPlayers(teamid/teamname)` - Returns the players for a specific team
+* `getPlayerStats(playerid)` - Returns general & hero specific stats for a player
+
+#### Team Methods
 * `findTeamID(teamname)` - Returns the ID for the team name provided
 * `findTeamName(teamid)` - Returns the name for the team ID provided
 * `getGameDiff(teamid/teamname)` - Returns the game difference for a specific team
 * `getGameLoss(teamid/teamname)` - Returns the game losses for a specific team
 * `getGameTie(teamid/teamname)` - Returns the game ties for a specific team
 * `getGameWin(teamid/teamname)` - Returns the game wins for a specific team
+* `getRankings()` - Returns the current rankings
 * `getMatchDraw(teamid/teamname)` - Returns the match draws for a specific team
 * `getMatchLoss(teamid/teamname)` - Returns the match losses for a specific team
 * `getMatchWins(teamid/teamname)` - Returns the match wins for a specific team
-* `getPlayers(teamid/teamname)` - Returns the players for a specific team
 * `getPrimaryColor(teamid/teamname)` - Returns the hex code for a team's primary color
 * `getSecondaryColor(teamid/teamname)` - Returns the hex code for a team's secondary color
+* `getTeam(teamid/teamname)` - Returns a specific team
 * `getTeamIcon(teamid/teamname)` - Returns the URL for a team's icon
 * `getTeamLogo(teamid/teamname)` - Returns the URL for a team's logo
+* `getTeams()` - Retrieve all teams
 * `getWinPCT(teamid/teamname)` - Returns the match win percentage for a specific team
+* `nextMatchForTeam(teamid/teamname)` - Retrieve the next match for a specific team
+* `lastMatchForTeam(teamid/teamname)` - Retrieve the last match for a specific team
 
 #### Variables
 These are the accepted valued for team ID/team name (not case-sensitive)

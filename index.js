@@ -1,5 +1,4 @@
 var axios = require('axios');
-// var fs = require('fs');
 var path = require('path');
 
 function compareMatch(a, b) {
@@ -53,9 +52,6 @@ class owl {
     if (locale){
       params.locale = locale;
     }
-    if (url.startsWith('player/')){
-      params.expand = stats,stats.ranks
-    }
     this.api = axios.create({
       baseURL: url,
       params: params
@@ -64,52 +60,50 @@ class owl {
   }
 }
 
-// importing methods
+// import games methods
+owl.prototype.getLiveMatch = require('./lib/Games/getLiveMatch');
+owl.prototype.getMatch = require('./lib/Games/getMatch');
+owl.prototype.getMatches = require('./lib/Games/getMatches');
+owl.prototype.getWeeksMatches = require('./lib/Games/getWeeksMatches');
+owl.prototype.getConcludedWeek = require('./lib/Games/getConcludedWeek');
+owl.prototype.getUpcomingWeek = require('./lib/Games/getUpcomingWeek');
 
-owl.prototype.findTeamID = require('./lib/findTeamID');
-owl.prototype.findTeamName = require('./lib/findTeamName');
-owl.prototype.getGameDiff = require('./lib/getGameDiff');
-owl.prototype.getGameLoss = require('./lib/getGameLoss');
-owl.prototype.getGameTie = require('./lib/getGameTie');
-owl.prototype.getGameWin = require('./lib/getGameWin');
-owl.prototype.getInfo = require('./lib/getInfo');
-owl.prototype.getLiveMatch = require('./lib/getLiveMatch');
-owl.prototype.getMaps = require('./lib/getMaps');
-owl.prototype.getMatch = require('./lib/getMatch');
-owl.prototype.getMatchDraw = require('./lib/getMatchDraw');
-owl.prototype.getMatchLoss = require('./lib/getMatchLoss');
-owl.prototype.getMatchWins = require('./lib/getMatchWins');
-owl.prototype.getMatches = require('./lib/getMatches');
-owl.prototype.getNews = require('./lib/getNews');
-owl.prototype.getNewsPost = require('./lib/getNewsPost');
-owl.prototype.getPlayers = require('./lib/getPlayers');
-owl.prototype.getPrimaryColor = require('./lib/getPrimaryColor');
-owl.prototype.getRankings = require('./lib/getRankings');
-owl.prototype.getSchedule = require('./lib/getSchedule');
-owl.prototype.getSecondaryColor = require('./lib/getSecondaryColor');
-owl.prototype.getStandings = require('./lib/getStandings');
-owl.prototype.getStreams = require('./lib/getStreams');
-owl.prototype.getTeam = require('./lib/getTeam');
-owl.prototype.getTeamIcon = require('./lib/getTeamIcon');
-owl.prototype.getTeamLogo = require('./lib/getTeamLogo');
-owl.prototype.getTeams = require('./lib/getTeams');
-owl.prototype.getVideos = require('./lib/getVideos');
-owl.prototype.getWinPCT = require('./lib/getWinPCT');
-owl.prototype.lastMatchForTeam = require('./lib/lastMatchForTeam');
-owl.prototype.nextMatchForTeam = require('./lib/nextMatchForTeam');
-owl.prototype.getPlayer = require('./lib/getPlayer');
+// import gemeral methods
+owl.prototype.getInfo = require('./lib/General/getInfo');
+owl.prototype.getSchedule = require('./lib/General/getSchedule');
+owl.prototype.getMaps = require('./lib/General/getMaps');
+owl.prototype.getNews = require('./lib/General/getNews');
+owl.prototype.getNewsPost = require('./lib/General/getNewsPost');
+owl.prototype.getStandings = require('./lib/General/getStandings');
+owl.prototype.getStreams = require('./lib/General/getStreams');
+owl.prototype.getVideos = require('./lib/General/getVideos');
+
+// import player methods
+owl.prototype.getPlayers = require('./lib/Players/getPlayers');
+owl.prototype.getPlayerStats = require('./lib/Players/getPlayerStats');
+
+// import team methods
+owl.prototype.findTeamID = require('./lib/Teams/findTeamID');
+owl.prototype.findTeamName = require('./lib/Teams/findTeamName');
+owl.prototype.getGameDiff = require('./lib/Teams/getGameDiff');
+owl.prototype.getGameLoss = require('./lib/Teams/getGameLoss');
+owl.prototype.getGameTie = require('./lib/Teams/getGameTie');
+owl.prototype.getGameWin = require('./lib/Teams/getGameWin');
+owl.prototype.getRankings = require('./lib/Teams/getRankings');
+owl.prototype.getMatchDraw = require('./lib/Teams/getMatchDraw');
+owl.prototype.getMatchLoss = require('./lib/Teams/getMatchLoss');
+owl.prototype.getMatchWins = require('./lib/Teams/getMatchWins');
+owl.prototype.getPrimaryColor = require('./lib/Teams/getPrimaryColor');
+owl.prototype.getSecondaryColor = require('./lib/Teams/getSecondaryColor');
+owl.prototype.getTeam = require('./lib/Teams/getTeam');
+owl.prototype.getTeamIcon = require('./lib/Teams/getTeamIcon');
+owl.prototype.getTeamLogo = require('./lib/Teams/getTeamLogo');
+owl.prototype.getTeams = require('./lib/Teams/getTeams');
+owl.prototype.getWinPCT = require('./lib/Teams/getWinPCT');
+owl.prototype.lastMatchForTeam = require('./lib/Teams/lastMatchForTeam');
+owl.prototype.nextMatchForTeam = require('./lib/Teams/nextMatchForTeam');
 
 // end importing methods
-
-// vvv will not work in browser environment vvv
-//
-// const libdir = fs.readdirSync(path.join(__dirname,'lib'));
-// const files = libdir.filter(f => f.split('.').pop() === 'js');
-// files.forEach((f,i) => {
-//   owl.prototype[f.slice(0,-3)] = require(`./lib/${f.slice(0,-3)}`);
-//
-//   console.log(`owl.prototype.${f.slice(0,-3)} = require('./lib/${f.slice(0,-3)}');`);
-// });
 
 owl.Match = {
   State: {
