@@ -61,6 +61,13 @@ class owl {
   }
 }
 
+owl.Match = {
+  State: {
+    PENDING: 'PENDING',
+    CONCLUDED: 'CONCLUDED'
+  }
+};
+
 // import games methods
 owl.prototype.getLiveMatch = require('./lib/Games/getLiveMatch');
 owl.prototype.getMatch = require('./lib/Games/getMatch');
@@ -105,12 +112,5 @@ owl.prototype.lastMatchForTeam = require('./lib/Teams/lastMatchForTeam');
 owl.prototype.nextMatchForTeam = require('./lib/Teams/nextMatchForTeam');
 
 // end importing methods
-
-owl.Match = {
-  State: {
-    PENDING: 'PENDING',
-    CONCLUDED: 'CONCLUDED'
-  }
-};
 
 module.exports = owl;
