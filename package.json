@@ -1,20 +1,17 @@
 {
   "name": "overwatchleague",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "A Node.JS library for accessing and using the Overwatch League API",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivorydevs/overwatchleague.git"
+    "url": "git+https://github.com/ryanoconr/overwatchleague.git"
   },
   "keywords": [
     "overwatch",
     "league",
     "api",
     "owl",
-    "ryan",
-    "oconr",
-    "oconnor",
     "blizzard"
   ],
   "author": {
@@ -24,9 +21,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ivorydevs/overwatchleague/issues"
+    "url": "https://github.com/ryanoconr/overwatchleague/issues"
   },
-  "homepage": "https://github.com/ivorydevs/overwatchleague#readme",
+  "homepage": "https://github.com/ryanoconr/overwatchleague#readme",
   "dependencies": {
     "axios": "^0.18.0"
   }

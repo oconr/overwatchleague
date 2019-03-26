@@ -56,6 +56,7 @@ class owl {
       baseURL: url,
       params: params
     });
+    
     this.locale = locale;
   }
 }

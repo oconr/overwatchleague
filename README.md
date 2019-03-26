@@ -19,6 +19,8 @@ With NPM:
 $ npm install overwatchleague --save
 ```
 
+> **Update:** Changed `getWeeksMatches()` to include full week instead of 3 days either side. Added new expansion teams.
+
 ## Usage
 
 ```js
@@ -44,7 +46,7 @@ Output: `London Spitfire`
 * `getLiveMatch()` - Returns live data for the current match
 * `getMatch(matchid)` - Returns data for a specific match
 * `getMatches()` - Returns data for all matches
-* `getWeeksMatches()` - Returns data for all matches 3 days either side of the current date
+* `getWeeksMatches()` - Returns data for all matches for the current week
 * `getConcludedWeek()` - Returns data for all matches played during the last week
 * `getUpcomingWeek()` - Returns data for all matches during the upcoming week
 
@@ -122,6 +124,30 @@ These are the accepted valued for team ID/team name (not case-sensitive)
   * London Spitfire
     * ID: **4410**
     * Name: **London Spitfire/London/Spitfire**
+  * Chengdu Hunters
+    * ID: **7692**
+    * Name: **Chengdu Hunters/Chengdu/Hunters**
+  * Hangzhou Spark
+    * ID: **7693**
+    * Name: **Hangzhou Spark/Hangzhou/Spark**
+  * Paris Eternal
+    * ID: **7694**
+    * Name: **Paris Eternal/Paris/Eternal**
+  * Toronto Defiant
+    * ID: **7695**
+    * Name: **Toronto Defiant/Toronto/Defiant**
+  * Vancouver Titans
+    * ID: **7696**
+    * Name: **Vancouver Titans/Vancouver/Titans**
+  * Washington Justice
+    * ID: **7697**
+    * Name: **Washington Justice/Washington/Justice**
+  * Atlanta Reign
+    * ID: **7698**
+    * Name: **Atlanta Reign/Atlanta/Reign**
+  * Guangzhou Charge
+    * ID: **7699**
+    * Name: **Guangzhou Charge/Guangzhou/Charge**
 
 * Locales
   * `de_DE` - German
