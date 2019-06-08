@@ -23,6 +23,7 @@
   "bugs": {
     "url": "https://github.com/ryanoconr/overwatchleague/issues"
   },
+  "types": "./index.d.ts",
   "homepage": "https://github.com/ryanoconr/overwatchleague#readme",
   "dependencies": {
     "axios": "^0.18.0"
