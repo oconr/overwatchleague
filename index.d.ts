@@ -129,20 +129,41 @@ declare module "overwatchleague" {
 
     // Conversion
 
+    /**
+     * Gets a specific team
+     */
     getTeam(id: TeamIdentifier): AxiosPromise;
 
+    /**
+     * Gets the ID from a team name
+     */
     findTeamID(name: string): Promise<{ data: number }>;
 
+    /**
+     * Gets the name of the team from a team id.
+     */
     findTeamName(id: number): Promise<{ data: string }>;
 
     // Game
 
+    /**
+     * Gets the game differential of a team
+     */
     getGameDiff(id: TeamIdentifier): Promise<{ data: number }>;
 
+    /**
+     * Gets the loss' game count of a team
+     */
     getGameLoss(id: TeamIdentifier): Promise<{ data: number }>;
 
+    /**
+     * Gets the tie' game count of a team
+     */
     getGameTie(id: TeamIdentifier): Promise<{ data: number }>;
 
+    /**
+     * Gets the win' game count of a team
+     */
     getGameWin(id: TeamIdentifier): Promise<{ data: number }>;
 
     // Match
