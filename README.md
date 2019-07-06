@@ -56,7 +56,7 @@ Output: `London Spitfire`
 * `getMaps()` - Returns a list of maps
 * `getNews()` - Returns all news items
 * `getNewsPost(postid)` - Returns a specific news item
-* `getStandings()` - Returns the current standings
+* `getStandings(year, stage)` - Returns the current standings. The year will default to ***2019*** if one is not provided. You must provide a year if you are providing a stage. Valid stage values are "***stage1***", "***stage2***", "***stage3***" and "***stage4***".
 * `getStreams()` - Returns links to Overwatch League livestreams
 * `getVideos()` - Returns a list of VODs for past matches
 
