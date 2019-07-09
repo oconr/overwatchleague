@@ -97,7 +97,7 @@ declare module "overwatchleague" {
     /**
      * Gets the current standings
      */
-    getStandings(): AxiosPromise;
+    getStandings(year?: number, stage?: string): AxiosPromise;
 
     /**
      * Gets the streams that are currently live.
