@@ -77,7 +77,7 @@ declare module "overwatchleague" {
     /**
      * Gets the Schedule
      */
-    getSchedule(): AxiosPromise;
+    getSchedule(year?: number): AxiosPromise;
 
     /**
      * Gets informations about all maps.
