@@ -56,7 +56,7 @@ class owl {
       baseURL: url,
       params: params
     });
-    
+
     this.locale = locale;
   }
 }
@@ -75,6 +75,7 @@ owl.prototype.getMatches = require('./lib/Games/getMatches');
 owl.prototype.getWeeksMatches = require('./lib/Games/getWeeksMatches');
 owl.prototype.getConcludedWeek = require('./lib/Games/getConcludedWeek');
 owl.prototype.getUpcomingWeek = require('./lib/Games/getUpcomingWeek');
+owl.prototype.getPlayerStatsByMap = require('./lib/Games/getPlayerStatsByMap');
 
 // import gemeral methods
 owl.prototype.getInfo = require('./lib/General/getInfo');
