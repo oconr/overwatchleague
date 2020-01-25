@@ -65,6 +65,9 @@ declare module "overwatchleague" {
      */
     getUpcomingWeek(): AxiosPromise;
 
+
+    getPlayerStatsByMap(matchId: number, mapNumber: number): AxiosPromise;
+
     /*
      * SECTION: General Methods
      */
